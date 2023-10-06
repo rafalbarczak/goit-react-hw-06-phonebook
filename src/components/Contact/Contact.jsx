@@ -10,21 +10,26 @@ export const Contact = ({ contact }) => {
 
   return (
     <>
-      {' '}
-      {contact.name}: {contact.number}
-      <button className={css.deleteBtn} name="delete" onClick={handleDelete}>
-        Delete
-      </button>
+      {contact && (
+        <div>
+          {contact.name}: {contact.number}
+          <button
+            className={css.deleteBtn}
+            name="delete"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
+      )}
     </>
   );
 };
 
 Contact.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }),
 };
